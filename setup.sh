@@ -11,7 +11,7 @@ GIT=$(which git)
 YUM=$(which yum)
 
 if [[ -z ${GIT} ]]; then
-  ${YUM} install -y git.x86_64
+  sudo ${YUM} install -y git.x86_64
   GIT=$(which git)
 
   git config --global user.email "${EMAIL}"
