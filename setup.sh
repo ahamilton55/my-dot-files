@@ -45,7 +45,7 @@ fi
 
 if [[ ! -d ${HOME}/.oh-my-zsh ]]; then
   echo "Clonging my version of oh-my-zsh"
-  git clone git@github.com:ahamilton55/oh-my-zsh.git ${HOME}/.oh-my-zsh
+  git clone https://github.com/ahamilton55/oh-my-zsh.git ${HOME}/.oh-my-zsh
 else
   echo "oh-my-zsh already cloned."
 fi
