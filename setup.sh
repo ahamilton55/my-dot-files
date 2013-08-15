@@ -18,7 +18,7 @@ if [[ -z ${GIT} ]]; then
   git config --global user.name "${NAME}"
 fi
 
-RTN=$(git -T git@github.com)
+RTN=$(ssh -T git@github.com)
 if [[ $RTN = "Hi ahamilton55! You've successfully authenticated, but GitHub does not provide shell access." ]]; then
   GITHUB_SETUP=0
 else
