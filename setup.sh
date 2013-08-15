@@ -28,7 +28,7 @@ fi
 ## Set my-dot-files repo
 if [[ ! -d ${MY_DOT_FILES} ]]; then
   echo "Cloning my-dot-files repo"
-  git clone git@github.com:ahamilton55/my-dot-files ${MY_DOT_FILES}
+  git clone https://github.com/ahamilton55/my-dot-files.git ${MY_DOT_FILES}
 fi
 
 ## Setup ZSH
