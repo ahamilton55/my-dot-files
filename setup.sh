@@ -67,7 +67,7 @@ if [[ ! -f /usr/bin/vim ]]; then
   sudo ${YUM} install -y vim-enhanced.x86_64
 fi
 
-if [[ -d ${HOME}/.vim ]]; then
+if [[ -d ${HOME}/.vim && ! -L ${HOME}/.vim ]]; then
   echo "Setting up ${HOME}/.vim"
   mv ${HOME}/.vim ${MY_DOT_FILES}/old/.vim.${DATE}
   ln -s ${MY_DOT_FILES}/vim/.vim ${HOME}/.vim
@@ -78,7 +78,7 @@ else
   echo "Vim folder is already setup." 
 fi
 
-if [[ -f ${HOME}/.vimrc ]]; then
+if [[ -f ${HOME}/.vimrc && ! -L ${HOME}/.vimrc ]]; then
   echo "Setting up ${HOME}/.vimrc"
   mv ${HOME}/.vimrc ${MY_DOT_FILES}/old/.vimrc.${DATE}
   ln -s ${MY_DOT_FILES}/vim/.vimrc ${HOME}/.vimrc
