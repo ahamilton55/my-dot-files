@@ -18,12 +18,12 @@ if [[ -z ${GIT} ]]; then
   git config --global user.name "${NAME}"
 fi
 
-RTN=$(ssh -T git@github.com)
-if [[ $RTN = "Hi ahamilton55! You've successfully authenticated, but GitHub does not provide shell access." ]]; then
-  GITHUB_SETUP=0
-else
-  echo "Please setup your ssh-keys and/or ssh-agent."
-fi
+#RTN=$(ssh -T git@github.com)
+#if [[ $RTN = "Hi ahamilton55! You've successfully authenticated, but GitHub does not provide shell access." ]]; then
+#  GITHUB_SETUP=0
+#else
+#  echo "Please setup your ssh-keys and/or ssh-agent."
+#fi
 
 ## Set my-dot-files repo
 if [[ ! -d ${MY_DOT_FILES} ]]; then
