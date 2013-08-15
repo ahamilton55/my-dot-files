@@ -38,7 +38,7 @@ if [[ ! -f /bin/zsh ]]; then
   chsh -s /bin/zsh
 elif [[ ! $(cat /etc/passwd | grep ${USER} | awk -F':' '{print $7}') = '/bin/zsh' ]]; then
   echo "Changing the default shell from ${SHELL} to /bin/zsh"
-  chsh -s /bin/zsh
+  sudo chsh -s /bin/zsh $USER
 else
   echo "ZSH is already installed"
 fi
