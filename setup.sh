@@ -35,7 +35,7 @@ fi
 if [[ ! -f /bin/zsh ]]; then
   echo "ZSH doesn't seem to be installed. Installing it"
   sudo $YUM install -y zsh.x86_64
-  chsh -s /bin/zsh
+  sudo chsh -s /bin/zsh
 elif [[ ! $(cat /etc/passwd | grep ${USER} | awk -F':' '{print $7}') = '/bin/zsh' ]]; then
   echo "Changing the default shell from ${SHELL} to /bin/zsh"
   sudo chsh -s /bin/zsh $USER
