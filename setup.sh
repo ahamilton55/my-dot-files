@@ -18,7 +18,7 @@ if [[ -z ${GIT} ]]; then
 fi
 
 ssh-keyscan github.com &>${HOME}/.ssh/authorized_keys
-RTN=$(ssh -T git@github.com)
+RTN=$(ssh -o StrictHostKeyChecking=no -T git@github.com)
 if [[ $RTN = "Hi ahamilton55! You've successfully authenticated, but GitHub does not provide shell access." ]]; then
   GITHUB_URL="git@github.com:ahamilton55/"
 else
