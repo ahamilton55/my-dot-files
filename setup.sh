@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Setup my environment with the various dot files and such.
-GITHUB_SETUP=1
 MY_DOT_FILES=${HOME}/.my-dot-files
 DATE=$(date +%y%m%d%H%M%S)
 EMAIL="ahamilton55@gmail.com"
@@ -18,17 +17,17 @@ if [[ -z ${GIT} ]]; then
   git config --global user.name "${NAME}"
 fi
 
-#RTN=$(ssh -T git@github.com)
-#if [[ $RTN = "Hi ahamilton55! You've successfully authenticated, but GitHub does not provide shell access." ]]; then
-#  GITHUB_SETUP=0
-#else
-#  echo "Please setup your ssh-keys and/or ssh-agent."
-#fi
+RTN=$(ssh -T git@github.com)
+if [[ $RTN = "Hi ahamilton55! You've successfully authenticated, but GitHub does not provide shell access." ]]; then
+  GITHUB_URL="git@github.com:ahamilton55/"
+else
+  GITHUB_URL="https://github.com/ahamilton55"
+fi
 
 ## Set my-dot-files repo
 if [[ ! -d ${MY_DOT_FILES} ]]; then
   echo "Cloning my-dot-files repo"
-  git clone https://github.com/ahamilton55/my-dot-files.git ${MY_DOT_FILES}
+  git clone ${GITHUB_URL}/my-dot-files.git ${MY_DOT_FILES}
 fi
 
 ## Setup ZSH
@@ -45,7 +44,7 @@ fi
 
 if [[ ! -d ${HOME}/.oh-my-zsh ]]; then
   echo "Clonging my version of oh-my-zsh"
-  git clone https://github.com/ahamilton55/oh-my-zsh.git ${HOME}/.oh-my-zsh
+  git clone ${GITHUB_URL}/oh-my-zsh.git ${HOME}/.oh-my-zsh
 else
   echo "oh-my-zsh already cloned."
 fi
@@ -87,6 +86,20 @@ elif [[ ! -L ${HOME}/.vimrc ]]; then
   ln -s ${MY_DOT_FILES}/vim/.vimrc ${HOME}/.vimrc
 else
   echo "Vimrc file is already setup."
+fi
+
+## Setup irssi
+if [[ -d ${HOME}/.irssi && ! -L ${HOME}/.irssi ]]; then
+  echo "Setting up ${HOME}/.irssi"
+  mv ${HOME}/.irssi ${MY_DOT_FILES}/old/.vimrc.${DATE}
+  ln -s ${MY_DOT_FILES}/irssi/.irssi ${HOME}/.irssi
+  echo "Please run \"sed -i -e 's/<password>/l33tP4ssw0rD/' ${HOME}/.irssi/config\" to set your Freenode password"
+elif [[ ! -L ${HOME}/.irssi ]]; then
+  echo "Setting up ${HOME}/.vimrc"
+  ln -s ${MY_DOT_FILES}/irssi/.irssi ${HOME}/.irssi
+  echo "Please run \"sed -i -e 's/<password>/l33tP4ssw0rD/' ${HOME}/.irssi/config\" to set your Freenode password"
+else
+  echo "irssi already setup"
 fi
 
 echo "Completed"
