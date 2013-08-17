@@ -50,3 +50,5 @@ source $ZSH/oh-my-zsh.sh
 if [[ -e /usr/bin/aws_zsh_completer.sh ]]; then
   source /usr/bin/aws_zsh_completer.sh
 fi
+
+export AWS_CONFIG_FILE=~/.ec2/planet_express.aws
