@@ -45,3 +45,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+# AWS CLI autocompleter
+if [[ -e /usr/bin/aws_zsh_completer.sh ]]; then
+  source /usr/bin/aws_zsh_completer.sh
+fi
