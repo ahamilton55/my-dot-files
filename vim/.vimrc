@@ -16,6 +16,8 @@ set number
 set numberwidth=3
 set cpoptions+=n
 
+let g:enable_numbers = 0
+
 syntax on
 
 filetype indent plugin on
@@ -27,3 +29,4 @@ let g:Powerline_symbols = 'unicode'
 call pathogen#infect()
 
 nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersOnOff<CR>
