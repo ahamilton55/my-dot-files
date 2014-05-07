@@ -11,6 +11,11 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+if has("autocmd")
+  autocmd FileType go set noexpandtab
+  autocmd BufWritePre *.go Fmt
+endif
+
 set modeline
 set number
 set numberwidth=3

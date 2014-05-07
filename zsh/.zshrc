@@ -49,6 +49,13 @@ source $ZSH/oh-my-zsh.sh
 # AWS CLI autocompleter
 if [[ -e /usr/bin/aws_zsh_completer.sh ]]; then
   source /usr/bin/aws_zsh_completer.sh
+elif [[ -e /usr/local/bin/aws_zsh_completer.sh ]]; then
+  source /usr/local/bin/aws_zsh_completer.sh
 fi
 
-export AWS_CONFIG_FILE=~/.ec2/planet_express.aws
+#export AWS_CONFIG_FILE=~/.ec2/planet_express.aws
+
+export GOROOT=/usr/local/go
+export GOPATH=/Users/andrew/go
+
+export PATH=$PATH:/usr/local/go/bin
