@@ -90,6 +90,12 @@ else
 fi
 
 ## Setup irssi
+IRSSI=$(which irssi)
+
+if [[ -z $IRSSI ]]; then
+  sudo yum -y install irssi
+fi
+
 if [[ -d ${HOME}/.irssi && ! -L ${HOME}/.irssi ]]; then
   echo "Setting up ${HOME}/.irssi"
   mv ${HOME}/.irssi ${MY_DOT_FILES}/old/.vimrc.${DATE}
