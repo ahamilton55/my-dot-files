@@ -12,8 +12,6 @@ set shiftwidth=2
 set softtabstop=2
 
 if has("autocmd")
-  autocmd FileType go set noexpandtab
-  autocmd BufWritePre *.go Fmt
 endif
 
 set modeline
@@ -35,3 +33,6 @@ call pathogen#infect()
 
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
+
+autocmd FileType go set noexpandtab
+autocmd BufWritePre *.go Fmt

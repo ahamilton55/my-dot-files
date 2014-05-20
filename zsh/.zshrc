@@ -59,3 +59,7 @@ export GOROOT=/usr/local/go
 export GOPATH=/Users/andrew/go
 
 export PATH=$PATH:/usr/local/go/bin
+
+if [[ -f ${HOME}/.prevoty_aws ]]; then
+  source ${HOME}/.prevoty_aws
+fi
