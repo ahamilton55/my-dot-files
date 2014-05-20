@@ -99,7 +99,7 @@ chatnets = {
   Freenode = {
     type = "IRC";
     nick = "cpt_yesterday";
-    autosendcmd = "/msg nickserv identify <password>; wait 3000";
+    autosendcmd = "/msg nickserv identify i5i4pim4FN; wait 3000";
   };
 };
 
@@ -109,7 +109,8 @@ channels = (
   { name = "#eucalyptus"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#cobbler"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#appscale"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#ptg"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#ansible"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#ptg"; chatnet = "Freenode"; autojoin = "yes"; },
 );
 
 aliases = {
@@ -292,3 +293,4 @@ hilights = (
   { text = "cpt_yesterday"; nick = "yes"; word = "yes"; },
   { text = "_cpt_yesterday_"; nick = "yes"; word = "yes"; }
 );
+logs = { };
