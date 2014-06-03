@@ -53,13 +53,22 @@ elif [[ -e /usr/local/bin/aws_zsh_completer.sh ]]; then
   source /usr/local/bin/aws_zsh_completer.sh
 fi
 
-#export AWS_CONFIG_FILE=~/.ec2/planet_express.aws
-
-export GOROOT=/usr/local/go
-export GOPATH=/Users/andrew/go
-
-export PATH=$PATH:/usr/local/go/bin
-
+# Configure AWS credentials
 if [[ -f ${HOME}/.prevoty_aws ]]; then
   source ${HOME}/.prevoty_aws
 fi
+
+if [[ -f ~/.ec2/planet_express.aws ]]; then
+  export AWS_CONFIG_FILE=~/.ec2/planet_express.aws
+fi
+
+# Configure Go stuff
+if [[ -d /usr/local/go ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+  export GOROOT=/usr/local/go
+
+  if [[ -d /Users/andrew/go ]]; then
+    export GOPATH=/Users/andrew/go
+  fi
+fi
+
