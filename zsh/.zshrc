@@ -67,8 +67,8 @@ if [[ -d /usr/local/go ]]; then
   export PATH=$PATH:/usr/local/go/bin
   export GOROOT=/usr/local/go
 
-  if [[ -d /Users/andrew/go ]]; then
-    export GOPATH=/Users/andrew/go
+  if [[ -d $HOME/go ]]; then
+    export GOPATH=$HOME/go
   fi
 fi
 
