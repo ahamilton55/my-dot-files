@@ -72,3 +72,24 @@ if [[ -d /usr/local/go ]]; then
   fi
 fi
 
+# Setup ansible source if it exists
+if [[ -d ${HOME}/workspace/ansible ]]; then
+  source ${HOME}/workspace/ansible/hacking/env-setup &>/dev/null
+fi
+
+if [[ -f ${HOME}/.prevoty_aws ]]; then
+  source ${HOME}/.prevoty_aws
+  export EC2_INI_PATH=/Users/andrew/go/src/prevoty/deploy/deploy_conf/ec2.ini
+  export ANSIBLE_CONFIG=/Users/andrew/go/src/prevoty/deploy/deploy_conf/ansible.cfg
+  export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${HOME}/go/src/prevoty/deploy/modules/
+fi
+
+if [[ -d /usr/local/share/python ]]; then
+  export PATH=${PATH}:/usr/local/share/python
+fi
+
+if [[ -f /usr/local/bin/vim ]]; then
+  alias vim=/usr/local/bin/vim
+  export EDITOR=/usr/local/bin/vim
+fi
+
