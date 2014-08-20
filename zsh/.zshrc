@@ -64,12 +64,12 @@ fi
 
 # Configure Go stuff
 if [[ -d /usr/local/go ]]; then
-  export PATH=$PATH:/usr/local/go/bin
   export GOROOT=/usr/local/go
 
   if [[ -d $HOME/go ]]; then
     export GOPATH=$HOME/go
   fi
+  export PATH=$PATH:$GOPATH/bin
 fi
 
 # Setup ansible source if it exists
