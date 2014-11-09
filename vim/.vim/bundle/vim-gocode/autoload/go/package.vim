@@ -31,13 +31,15 @@ endif
 function! go#package#Paths()
     let dirs = []
 
-    if executable('go')
-        let goroot = substitute(system('go env GOROOT'), '\n', '', 'g')
-        if v:shell_error
-            echomsg '''go env GOROOT'' failed'
-        endif
-    else
+    if exists('$GOROOT')
         let goroot = $GOROOT
+    else
+        if executable('go')
+            let goroot = substitute(system('go env GOROOT'), '\n', '', 'g')
+            if v:shell_error
+                echomsg '''go env GOROOT'' failed'
+            endif
+        endif
     endif
 
     if len(goroot) != 0 && isdirectory(goroot)
@@ -60,11 +62,23 @@ function! go#package#FromPath(arg)
     let path = fnamemodify(resolve(a:arg), ':p:h')
     let dirs = go#package#Paths()
 
-    for dir in dirs
-        if len(dir) && match(path, dir) == 0
-            let workspace = dir
-        endif
-    endfor
+    if s:goos == 'windows'
+        let path = substitute(tolower(path), "\\", "/", 'g')
+        for dir in dirs
+            if len(dir)
+                let dir = substitute(tolower(dir), "\\", "/", 'g')
+                if stridx(path, dir) == 0
+                    let workspace = dir
+                endif
+            endif
+        endfor
+    else
+        for dir in dirs
+            if len(dir) && stridx(path, dir) == 0
+                let workspace = dir
+            endif
+        endfor
+    endif
 
     if !exists('workspace')
         return -1

@@ -81,7 +81,12 @@ if [[ -f ${HOME}/.prevoty_aws ]]; then
   source ${HOME}/.prevoty_aws
   export EC2_INI_PATH=/Users/andrew/go/src/prevoty/deploy/deploy_conf/ec2.ini
   export ANSIBLE_CONFIG=/Users/andrew/go/src/prevoty/deploy/deploy_conf/ansible.cfg
-  export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${HOME}/go/src/prevoty/deploy/modules/
+  if [[ -n $ANSIBLE_LIBRARY ]]; then
+    export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${HOME}/go/src/prevoty/deploy/modules/
+  else
+    export ANSIBLE_LIBRARY=${HOME}/go/src/prevoty/deploy/modules/
+  fi
+
 fi
 
 if [[ -d /usr/local/share/python ]]; then
