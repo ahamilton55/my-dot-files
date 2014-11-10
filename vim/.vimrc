@@ -2,7 +2,10 @@ if $COLORTERM == 'gnome-terminal'
       set t_Co=256
 endif
 
-colorscheme rootwater
+set t_Co=256
+let g:solarized_termcolors=256
+
+call pathogen#infect()
 
 set backspace=indent,eol,start
 set cpoptions+=n
@@ -19,7 +22,9 @@ syntax on
 
 filetype indent plugin on
 
-call pathogen#infect()
+set background=dark
+colorscheme solarized
+"colorscheme rootwater
 
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
