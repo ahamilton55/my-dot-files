@@ -7,18 +7,30 @@ let g:solarized_termcolors=256
 
 call pathogen#infect()
 
+set autoindent
 set backspace=indent,eol,start
+set copyindent
 set cpoptions+=n
 set expandtab
 set modeline
 set nocompatible
+set nowrap
 set number
 set numberwidth=3
+set shiftround
 set shiftwidth=2
+set showmatch
+set smartcase
+set smarttab
 set softtabstop=2
 set tabstop=2
+set title
 
 syntax on
+
+set list
+set listchars=tab:►.,trail:•,extends:#,nbsp:•
+"set listchars=tab:►.,trail:•,extends:#,nbsp:•,eol:¬
 
 filetype indent plugin on
 
@@ -30,8 +42,10 @@ nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 let g:enable_numbers = 0
 
-autocmd FileType go set noexpandtab
-autocmd BufWritePre *.go Fmt
+if has('autocmd')
+  autocmd FileType go set noexpandtab
+  autocmd BufWritePre *.go Fmt
+endif
 
 " For Powerline
 set laststatus=2

@@ -69,7 +69,7 @@ if [[ -d /usr/local/go ]]; then
   if [[ -d $HOME/go ]]; then
     export GOPATH=$HOME/go
   fi
-  export PATH=$PATH:$GOPATH/bin
+  export PATH=$PATH:$GOROOT/bin
 fi
 
 # Setup ansible source if it exists
@@ -98,3 +98,6 @@ if [[ -f /usr/local/bin/vim ]]; then
   export EDITOR=/usr/local/bin/vim
 fi
 
+if [[ -x /usr/libexec/java_home ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
