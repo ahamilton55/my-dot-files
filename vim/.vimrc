@@ -29,8 +29,8 @@ set title
 syntax on
 
 set list
-set listchars=tab:►.,trail:•,extends:#,nbsp:•
-"set listchars=tab:►.,trail:•,extends:#,nbsp:•,eol:¬
+"set listchars=tab:»,trail:•,extends:#,nbsp:•
+set listchars=tab:».,trail:•,extends:#,nbsp:•,eol:¬
 
 filetype indent plugin on
 
