@@ -46,7 +46,7 @@ python powerline_setup()
 python del powerline_setup
 
 call vundle#begin()
-Plugin 'fatih/vim-go'
+Plugin 'ahamilton55/vim-go'
 call vundle#end()
 
 au FileType go nmap <Leader>s <Plug>(go-implements)
