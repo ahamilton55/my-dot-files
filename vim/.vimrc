@@ -63,3 +63,5 @@ au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <Leader>gl <Plug>(go-lint)
+
+nmap <Leader>gt :TagbarToggle<CR>
