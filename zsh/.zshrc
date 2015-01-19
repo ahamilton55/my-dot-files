@@ -69,7 +69,7 @@ if [[ -d /usr/local/go ]]; then
   if [[ -d $HOME/go ]]; then
     export GOPATH=$HOME/go
   fi
-  export PATH=$PATH:$GOROOT/bin
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 # Setup ansible source if it exists
