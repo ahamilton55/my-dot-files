@@ -79,12 +79,12 @@ fi
 
 if [[ -f ${HOME}/.prevoty_aws ]]; then
   source ${HOME}/.prevoty_aws
-  export EC2_INI_PATH=/Users/andrew/go/src/prevoty/deploy/deploy_conf/ec2.ini
-  export ANSIBLE_CONFIG=/Users/andrew/go/src/prevoty/deploy/deploy_conf/ansible.cfg
+  export EC2_INI_PATH=/Users/andrew/workspace/deploy/deploy_conf/ec2.ini
+  export ANSIBLE_CONFIG=/Users/andrew/workspace/deploy/deploy_conf/ansible.cfg
   if [[ -n $ANSIBLE_LIBRARY ]]; then
-    export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${HOME}/go/src/prevoty/deploy/modules/
+    export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${HOME}/workspace/deploy/modules/
   else
-    export ANSIBLE_LIBRARY=${HOME}/go/src/prevoty/deploy/modules/
+    export ANSIBLE_LIBRARY=${HOME}/workspace/deploy/modules/
   fi
 
 fi
@@ -98,6 +98,7 @@ if [[ -f /usr/local/bin/vim ]]; then
   export EDITOR=/usr/local/bin/vim
 fi
 
-if [[ -x /usr/libexec/java_home ]]; then
+if [[ $(uname -s) == "Darwin" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
+  export PATH=$PATH:/Applications/VMware\ Fusion.app/Contents/Library
 fi
