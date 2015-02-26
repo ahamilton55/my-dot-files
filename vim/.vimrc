@@ -3,20 +3,12 @@ filetype off
 
 call pathogen#infect()
 
+set background=dark
+colorscheme solarized
+
 call vundle#begin()
 Plugin 'fatih/vim-go'
 call vundle#end()
-
-filetype indent plugin on
-
-if $COLORTERM == 'gnome-terminal'
-      set t_Co=256
-endif
-
-set t_Co=256
-let g:solarized_termcolors=256
-
-call pathogen#infect()
 
 set autoindent
 set backspace=indent,eol,start
@@ -40,14 +32,9 @@ set title
 syntax on
 
 set list
-"set listchars=tab:»,trail:•,extends:#,nbsp:•
 set listchars=tab:».,trail:•,extends:#,nbsp:•,eol:¬
 
 filetype indent plugin on
-
-set background=dark
-colorscheme solarized
-"colorscheme rootwater
 
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
@@ -67,10 +54,6 @@ let g:Powerline_symbols = 'unicode'
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-
-call vundle#begin()
-Plugin 'ahamilton55/vim-go'
-call vundle#end()
 
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
