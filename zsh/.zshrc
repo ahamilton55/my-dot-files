@@ -101,4 +101,8 @@ fi
 if [[ $(uname -s) == "Darwin" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   export PATH=$PATH:/Applications/VMware\ Fusion.app/Contents/Library
+
+  if [[ -z $SSH_AGENT_PID ]]; then
+    eval $(ssh-agent -s)
+  fi
 fi
