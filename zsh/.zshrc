@@ -5,7 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
+#ZSH_THEME="blinks"
+ZSH_THEME="blinks-custom"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -15,7 +16,7 @@ ZSH_THEME="blinks"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -77,14 +78,14 @@ if [[ -d ${HOME}/workspace/ansible ]]; then
   source ${HOME}/workspace/ansible/hacking/env-setup &>/dev/null
 fi
 
-if [[ -f ${HOME}/.prevoty_aws ]]; then
-  source ${HOME}/.prevoty_aws
-  export EC2_INI_PATH=/Users/andrew/workspace/deploy/deploy_conf/ec2.ini
-  export ANSIBLE_CONFIG=/Users/andrew/workspace/deploy/deploy_conf/ansible.cfg
+export PREVOTY_OPS=${HOME}/workspace/ops
+if [[ -d ${PREVOTY_OPS} ]]; then
+  export EC2_INI_PATH=${PREVOTY_OPS}/deploy/deploy_conf/ec2.ini
+  export ANSIBLE_CONFIG=${PREVOTY_OPS}/deploy/deploy_conf/ansible.cfg
   if [[ -n $ANSIBLE_LIBRARY ]]; then
-    export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${HOME}/workspace/deploy/modules/
+    export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${PREVOTY_OPS}/deploy/modules/
   else
-    export ANSIBLE_LIBRARY=${HOME}/workspace/deploy/modules/
+    export ANSIBLE_LIBRARY=${PREVOTY_OPS}/deploy/modules/
   fi
 
 fi
