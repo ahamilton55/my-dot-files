@@ -97,6 +97,8 @@ fi
 if [[ -f /usr/local/bin/vim ]]; then
   alias vim=/usr/local/bin/vim
   export EDITOR=/usr/local/bin/vim
+else
+  export EDITOR=$(which vim)
 fi
 
 if [[ $(uname -s) == "Darwin" ]]; then
