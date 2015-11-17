@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let mapleader=","
 
 call pathogen#infect()
 
@@ -71,3 +72,44 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <Leader>gl <Plug>(go-lint)
 
 nmap <Leader>gt :TagbarToggle<CR>
+
+"split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"split defaults
+set splitbelow
+set splitright
+
+"enable folding for python
+"au FileType python set foldmethod=indent
+"au FileType python set foldlevel=99
+
+"setup PEP8 for pythonf files
+au BufNewFile,BufRead *.py
+            \ set tabstop=4
+            \ softtabstop=4
+            \ shiftwidth=4
+            \ textwidth=79
+            \ expandtab
+            \ autoindent
+            \ fileformat=unix
+
+"plugin for python indentation
+Plugin 'vim-scripts/indentpython.vim'
+
+"setup YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"plugin for nerdtree
+Plugin 'scrooloose/nerdtree'
+
+"Nerdtree settings
+let NERDTreeIgnore=['\.pyc$', '\~$']
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
