@@ -54,11 +54,6 @@ elif [[ -e /usr/local/bin/aws_zsh_completer.sh ]]; then
   source /usr/local/bin/aws_zsh_completer.sh
 fi
 
-# Configure AWS credentials
-if [[ -f ${HOME}/.prevoty_aws ]]; then
-  source ${HOME}/.prevoty_aws
-fi
-
 if [[ -f ~/.ec2/planet_express.aws ]]; then
   export AWS_CONFIG_FILE=~/.ec2/planet_express.aws
 fi
@@ -78,18 +73,6 @@ if [[ -d ${HOME}/workspace/ansible ]]; then
   source ${HOME}/workspace/ansible/hacking/env-setup &>/dev/null
 fi
 
-export PREVOTY_OPS=${HOME}/workspace/ops
-if [[ -d ${PREVOTY_OPS} ]]; then
-  export EC2_INI_PATH=${PREVOTY_OPS}/deploy/deploy_conf/ec2.ini
-  export ANSIBLE_CONFIG=${PREVOTY_OPS}/deploy/deploy_conf/ansible.cfg
-  if [[ -n $ANSIBLE_LIBRARY ]]; then
-    export ANSIBLE_LIBRARY=$ANSIBLE_LIBRARY:${PREVOTY_OPS}/deploy/modules/
-  else
-    export ANSIBLE_LIBRARY=${PREVOTY_OPS}/deploy/modules/
-  fi
-
-fi
-
 if [[ -d /usr/local/share/python ]]; then
   export PATH=${PATH}:/usr/local/share/python
 fi
@@ -101,11 +84,3 @@ else
   export EDITOR=$(which vim)
 fi
 
-if [[ $(uname -s) == "Darwin" ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-  export PATH=$PATH:/Applications/VMware\ Fusion.app/Contents/Library
-
-  if [[ -z $SSH_AGENT_PID ]]; then
-    eval $(ssh-agent -s)
-  fi
-fi
