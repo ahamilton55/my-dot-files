@@ -62,8 +62,8 @@ fi
 if [[ -d /usr/local/go ]]; then
   export GOROOT=/usr/local/go
 
-  if [[ -d $HOME/go ]]; then
-    export GOPATH=$HOME/go
+  if [[ -d $HOME/workspace/go ]]; then
+    export GOPATH=$HOME/workspace/go
   fi
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
@@ -84,3 +84,6 @@ else
   export EDITOR=$(which vim)
 fi
 
+if [[ -d $HOME/bin ]]; then
+  export PATH=${HOME}/bin:${PATH}
+fi
