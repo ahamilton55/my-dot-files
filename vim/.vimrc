@@ -96,10 +96,9 @@ set splitright
 
 "setup PEP8 for pythonf files
 au BufNewFile,BufRead *.py
-            \ set tabstop=4
-            \ softtabstop=4
-            \ shiftwidth=4
-            \ textwidth=79
+            \ set tabstop=2
+            \ softtabstop=2
+            \ shiftwidth=2
             \ expandtab
             \ autoindent
             \ fileformat=unix

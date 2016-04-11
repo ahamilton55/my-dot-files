@@ -73,10 +73,6 @@ if [[ -d ${HOME}/workspace/ansible ]]; then
   source ${HOME}/workspace/ansible/hacking/env-setup &>/dev/null
 fi
 
-if [[ -d /usr/local/share/python ]]; then
-  export PATH=${PATH}:/usr/local/share/python
-fi
-
 if [[ -f /usr/local/bin/vim ]]; then
   alias vim=/usr/local/bin/vim
   export EDITOR=/usr/local/bin/vim
