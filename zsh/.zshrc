@@ -51,7 +51,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -e /usr/bin/aws_zsh_completer.sh ]]; then
   source /usr/bin/aws_zsh_completer.sh
 elif [[ -e /usr/local/bin/aws_zsh_completer.sh ]]; then
-  source /usr/local/bin/aws_zsh_completer.sh
+  awscli_dir=$(find /usr/local/Cellar/awscli -type d -depth 1 | sort -n | tail -1)
+  source ${awscli_dir}/libexec/bin/aws_zsh_completer.sh
 fi
 
 if [[ -f ~/.ec2/planet_express.aws ]]; then
