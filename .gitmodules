@@ -6,7 +6,7 @@
 	url = git@github.com:Valloric/YouCompleteMe.git
 [submodule "vim/.vim/bundle/vim-go"]
 	path = vim/.vim/bundle/vim-go
-	url = git@github.com:ahamilton55/vim-go.git
+	url = git@github.com:fatih/vim-go.git
 [submodule "vim/.vim/bundle/tagbar"]
 	path = vim/.vim/bundle/tagbar
 	url = git@github.com:majutsushi/tagbar.git
