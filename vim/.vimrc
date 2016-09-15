@@ -8,7 +8,7 @@ set background=dark
 colorscheme solarized
 
 call vundle#begin()
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 call vundle#end()
 
 set autoindent
