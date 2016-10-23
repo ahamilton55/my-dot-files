@@ -84,3 +84,7 @@ fi
 if [[ -d $HOME/bin ]]; then
   export PATH=${HOME}/bin:${PATH}
 fi
+
+if [[ -f ${HOME}/.work_env ]]; then
+  source ${HOME}/.work_env
+fi
