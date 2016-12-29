@@ -1,0 +1,5 @@
+When installing YouCompleteMe
+
+```bash
+$ ./install.py --gocode-completer
+```
