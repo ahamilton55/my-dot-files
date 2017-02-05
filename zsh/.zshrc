@@ -62,11 +62,15 @@ fi
 # Configure Go stuff
 if [[ -d /usr/local/go ]]; then
   export GOROOT=/usr/local/go
+  export PATH=$PATH:$GOROOT/bin
+elif [[ -d /usr/lib/go ]]; then
+  export GOROOT=/usr/lib/go
+  export PATH=$PATH:$GOROOT/bin
+fi
 
-  if [[ -d $HOME/workspace/go ]]; then
-    export GOPATH=$HOME/workspace/go
-    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-  fi
+if [[ -d $HOME/workspace/go ]]; then
+  export GOPATH=$HOME/workspace/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 # Setup ansible source if it exists
