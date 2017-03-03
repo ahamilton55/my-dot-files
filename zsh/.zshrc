@@ -70,7 +70,7 @@ fi
 
 if [[ -d $HOME/workspace/go ]]; then
   export GOPATH=$HOME/workspace/go
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+  export PATH=$GOPATH/bin:$PATH
 fi
 
 # Setup ansible source if it exists
