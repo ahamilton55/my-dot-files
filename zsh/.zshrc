@@ -111,10 +111,20 @@ else
 #  #  export SSH_AUTH_SOCK
 #  #  export SSH_AGENT_PID
 #  #else
-  if [[ ! $(ps aux | grep gpg-agent | grep -v grep | grep gpg-agent) ]]; then
-    $( gpg-agent --daemon >${HOME}/.gpg-agent-info )
-    source "${HOME}/.gpg-agent-info"
-  else
-    source "${HOME}/.gpg-agent-info"
+#  if [[ ! $(ps aux | grep gpg-agent | grep -v grep | grep gpg-agent) ]]; then
+#    $( gpg-agent --daemon >${HOME}/.gpg-agent-info )
+#    source "${HOME}/.gpg-agent-info"
+#  else
+#    source "${HOME}/.gpg-agent-info"
+#  fi
+  unset SSH_AGENT_PID
+  if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
   fi
+
+  # Set GPG TTY
+  export GPG_TTY=$(tty)
+
+  # Refresh gpg-agent tty in case user switches into an X session
+  gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
