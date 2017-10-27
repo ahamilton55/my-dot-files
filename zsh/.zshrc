@@ -68,8 +68,8 @@ elif [[ -d /usr/lib/go ]]; then
   export PATH=$PATH:$GOROOT/bin
 fi
 
-if [[ -d $HOME/workspace/go ]]; then
-  export GOPATH=$HOME/workspace/go
+if [[ -d $HOME/go ]]; then
+  export GOPATH=$HOME/go
   export PATH=$GOPATH/bin:$PATH
 fi
 
@@ -94,6 +94,8 @@ if [[ -f ${HOME}/.work_env ]]; then
 fi
 
 [[ -x /usr/libexec/path_helper ]] && eval $(/usr/libexec/path_helper -s)
+
+gpg-agent --daemon &>/dev/null
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
@@ -120,4 +122,8 @@ else
 
   # Refresh gpg-agent tty in case user switches into an X session
   gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
+
+if [[ -f ~/.local_settings ]]; then
+  source ~/.local_settings
 fi
