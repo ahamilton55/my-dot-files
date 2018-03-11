@@ -29,3 +29,6 @@
 [submodule "vim/.vim/bundle/vim-gocode"]
 	path = vim/.vim/bundle/vim-gocode
 	url = git@github.com:Blackrush/vim-gocode.git
+[submodule "vim/.vim/bundle/powerline"]
+	path = vim/.vim/bundle/powerline
+	url = https://github.com/powerline/powerline.git

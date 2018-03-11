@@ -9,6 +9,7 @@ colorscheme solarized
 
 call vundle#begin()
 "Plugin 'fatih/vim-go'
+  Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 call vundle#end()
 
 set autoindent
@@ -52,9 +53,9 @@ set noshowmode
 let g:Powerline_theme='short'
 let g:Powerline_symbols = 'unicode'
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
