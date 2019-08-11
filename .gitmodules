@@ -32,3 +32,12 @@
 [submodule "vim/.vim/bundle/powerline"]
 	path = vim/.vim/bundle/powerline
 	url = https://github.com/powerline/powerline.git
+[submodule "vim/.vim/bundle/delimitMate"]
+	path = vim/.vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim/.vim/bundle/deoplete-go"]
+	path = vim/.vim/bundle/deoplete-go
+	url = https://github.com/deoplete-plugins/deoplete-go.git
+[submodule "vim/.vim/bundle/deoplete.nvim"]
+	path = vim/.vim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git
