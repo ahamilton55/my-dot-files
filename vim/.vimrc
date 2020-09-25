@@ -2,6 +2,9 @@ set nocompatible
 filetype off
 let mapleader=","
 
+if has('python3')
+endif
+
 call pathogen#infect()
 
 set background=dark
@@ -30,6 +33,7 @@ set smarttab
 set softtabstop=2
 set tabstop=2
 set title
+set pyxversion=3
 
 syntax on
 
@@ -123,3 +127,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+"deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+
+"Go PLS server
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })

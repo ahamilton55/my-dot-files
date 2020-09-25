@@ -41,3 +41,9 @@
 [submodule "vim/.vim/bundle/deoplete.nvim"]
 	path = vim/.vim/bundle/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "vim/.vim/bundle/vim-hug-neovim-rpc"]
+	path = vim/.vim/bundle/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc.git
+[submodule "vim/.vim/bundle/nvim-yarp"]
+	path = vim/.vim/bundle/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp.git
